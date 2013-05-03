@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+    @{
+        ViewBag.Title = "Αρχική Σελίδα";
+    }
+
+
+    <script src="@Url.Content("~/Scripts/JScript.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.js")" type="text/javascript"></script>
+
+
+<body>
+    <div style="margin-left: 50px; margin-right: 50px">
+        <h2>@ViewBag.Message</h2>
+        <hr class="style-four"/>
+        <br />
+        <br />
+        <br />
+    </div>
+    @using (Html.BeginForm())
+    {
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs-1">Αναζήτηση Νομικού Θέματος</a></li>
+                <li><a href="#tabs-2">Αναζήτηση Δικηγoρικού Γραφείου</a></li>
+            </ul>
+
+
+            <div id="tabs-1">
+                <div style="margin-left: 200px; margin-right: 200px;">
+                    <fieldset>
+                        <table>
+                            <tr>
+                                <td>
+                                    <div><b>Πληκτρολόγησε το νομικό σου ζήτημα:</b></div>
+                                    <br />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <input type="text" id="searchText" placeholder="Π.χ Διαζύγιο ή Εφορία ή Ενοίκιο" />
+                                    <br />
+                                    <br />
+                                </td>
+                            </tr>
+                        </table>
+                        <button id="search2" class="btn btn-small">Αναζήτηση</button>
+                        <button id="reset2" class="btn btn-small" type="button" onclick="fieldsetReset()">Επαναφορά</button>
+                        <br />
+                    </fieldset>
+
+                    <div class="container-fluid">
+                        <div class="accordion" id="accordion2">
+                            <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Click me to exapand. Click me again to collapse. Part I.  
+                                    </a>
+                                </div>
+                                <div id="collapseOne" class="accordion-body collapse" style="height: 0px;">
+                                    <div class="accordion-inner">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Click me to exapand. Click me again to collapse. Part I.  
+                                    </a>
+                                </div>
+                                <div id="collapseOne" class="accordion-body collapse" style="height: 0px;">
+                                    <div class="accordion-inner">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">Click me to exapand. Click me again to collapse. Part II.  
+                                    </a>
+                                </div>
+                                <div id="collapseTwo" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">Click me to exapand. Click me again to collapse. Part III.  
+                                    </a>
+                                </div>
+                                <div id="collapseThree" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+                </div>
+            </div>
+
+            <div id="tabs-2">
+                <div style="margin-left: 200px; margin-right: 200px;">
+                    <p>
+                        <fieldset>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label for="t1">Επωνυμία:</label>
+                                    </td>
+                                    <td>
+                                        <input type="text" id="t1" value="" class="inputtext1" placeholder="Επωνυμία ή όνομα δικηγόρου" title="Πληκτρολογήστε την επωνυμία του δικηγόρου που αναζητάτε." />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <label for="dt1">Δικηγορικός Σύλλογος:</label>
+                                    </td>
+                                    <td>
+                                        <select id="dt1" multiple="multiple">
+                                            <option value="1">Αθήνα</option>
+                                            <option value="2">Αγρίνιο</option>
+                                            <option value="3">Γιάννενα</option>
+                                            <option value="4">Σκύρος</option>
+                                            <option value="5">Θεσσαλονίκη</option>
+                                            <option value="6">Αλεξανδρούπολη</option>
+                                        </select>
+                                    </td>
+                                    <br />
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <label for="dt2">Τομέας Δικαίου:</label>
+                                    </td>
+                                    <td>
+                                        <select id="dt2" multiple="multiple">
+                                            <optgroup label="Ποινικό Δίκαιο">
+                                                <option value="1">Αστυνομικό Δίκαιο</option>
+                                                <option value="1">Αστυνομικό Δίκαιο</option>
+                                            </optgroup>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br />
+                            <br />
+                            <button id="search1" class="btn btn-small" type="button" onclick="$('#res1').show();">Αναζήτηση</button>
+                            <button id="reset1" class="btn btn-small" type="button" onclick="fieldsetReset()">Επαναφορά</button>
+                            <br />
+                        </fieldset>
+
+                        <!-- to trigger modal -->
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Username</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        1
+                                    </td>
+                                    <td>
+                                        <a href="#myModal" data-toggle="modal">Δικηγόρος 1</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        2
+                                    </td>
+                                    <td>
+                                        <a href="#myModal" data-toggle="modal">Δικηγόρος 2</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        3
+                                    </td>
+                                    <td>
+                                        <a href="#myModal" data-toggle="modal">Δικηγόρος 3</a>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        4
+                                    </td>
+                                    <td>
+                                        <a href="#myModal" data-toggle="modal">Δικηγόρος 4</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                        <!-- Modal -->
+                        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h3 id="myModalLabel">Modal header</h3>
+                            </div>
+                            <div class="modal-body">
+                                <p>One fine body…</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                                <button class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </p>
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+
+        <!-- Based on view model results, inject html here. Don't forget to enclose html begin.form tag -->
+            
+           
+                
+    }
+
+
+
+</body>
+

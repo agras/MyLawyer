@@ -1,0 +1,647 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MyLawyerPublicModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="MyLawyerPublicModelStoreContainer">
+          <EntitySet Name="Keywords" EntityType="MyLawyerPublicModel.Store.Keywords" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="KeywordsLawSectors" EntityType="MyLawyerPublicModel.Store.KeywordsLawSectors" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="KeywordsLawyers" EntityType="MyLawyerPublicModel.Store.KeywordsLawyers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LawBars" EntityType="MyLawyerPublicModel.Store.LawBars" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LawSectors" EntityType="MyLawyerPublicModel.Store.LawSectors" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Lawyers" EntityType="MyLawyerPublicModel.Store.Lawyers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LawyersLawSectors" EntityType="MyLawyerPublicModel.Store.LawyersLawSectors" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LinkMetaData" EntityType="MyLawyerPublicModel.Store.LinkMetaData" store:Type="Tables" store:Schema="dbo" store:Name="LinkMetaData">
+            <DefiningQuery>SELECT 
+      [LinkMetaData].[Id] AS [Id], 
+      [LinkMetaData].[Title] AS [Title], 
+      [LinkMetaData].[Address] AS [Address], 
+      [LinkMetaData].[Phone] AS [Phone], 
+      [LinkMetaData].[Website] AS [Website], 
+      [LinkMetaData].[Email] AS [Email], 
+      [LinkMetaData].[Type] AS [Type]
+      FROM [dbo].[LinkMetaData] AS [LinkMetaData]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MainSectors" EntityType="MyLawyerPublicModel.Store.MainSectors" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Membership" EntityType="MyLawyerPublicModel.Store.Membership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Studies" EntityType="MyLawyerPublicModel.Store.Studies" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__KeywordsL__Keywo__31EC6D26" Association="MyLawyerPublicModel.Store.FK__KeywordsL__Keywo__31EC6D26">
+            <End Role="Keywords" EntitySet="Keywords" />
+            <End Role="KeywordsLawyers" EntitySet="KeywordsLawyers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KeywordsL__Keywo__35BCFE0A" Association="MyLawyerPublicModel.Store.FK__KeywordsL__Keywo__35BCFE0A">
+            <End Role="Keywords" EntitySet="Keywords" />
+            <End Role="KeywordsLawSectors" EntitySet="KeywordsLawSectors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KeywordsL__LawSe__36B12243" Association="MyLawyerPublicModel.Store.FK__KeywordsL__LawSe__36B12243">
+            <End Role="LawSectors" EntitySet="LawSectors" />
+            <End Role="KeywordsLawSectors" EntitySet="KeywordsLawSectors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KeywordsL__Lawye__32E0915F" Association="MyLawyerPublicModel.Store.FK__KeywordsL__Lawye__32E0915F">
+            <End Role="Lawyers" EntitySet="Lawyers" />
+            <End Role="KeywordsLawyers" EntitySet="KeywordsLawyers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LawyersLa__LawSe__3A81B327" Association="MyLawyerPublicModel.Store.FK__LawyersLa__LawSe__3A81B327">
+            <End Role="LawSectors" EntitySet="LawSectors" />
+            <End Role="LawyersLawSectors" EntitySet="LawyersLawSectors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LawyersLa__Lawye__398D8EEE" Association="MyLawyerPublicModel.Store.FK__LawyersLa__Lawye__398D8EEE">
+            <End Role="Lawyers" EntitySet="Lawyers" />
+            <End Role="LawyersLawSectors" EntitySet="LawyersLawSectors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LawSectors_MainSectors" Association="MyLawyerPublicModel.Store.FK_LawSectors_MainSectors">
+            <End Role="MainSectors" EntitySet="MainSectors" />
+            <End Role="LawSectors" EntitySet="LawSectors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lawyers_LawBars" Association="MyLawyerPublicModel.Store.FK_Lawyers_LawBars">
+            <End Role="LawBars" EntitySet="LawBars" />
+            <End Role="Lawyers" EntitySet="Lawyers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lawyers_Studies" Association="MyLawyerPublicModel.Store.FK_Lawyers_Studies">
+            <End Role="Studies" EntitySet="Studies" />
+            <End Role="Lawyers" EntitySet="Lawyers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Membership_Lawyers" Association="MyLawyerPublicModel.Store.FK_Membership_Lawyers">
+            <End Role="Lawyers" EntitySet="Lawyers" />
+            <End Role="Membership" EntitySet="Membership" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Keywords">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="nvarchar" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="KeywordsLawSectors">
+          <Key>
+            <PropertyRef Name="KeywordId" />
+            <PropertyRef Name="LawSectorId" />
+          </Key>
+          <Property Name="KeywordId" Type="int" Nullable="false" />
+          <Property Name="LawSectorId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KeywordsLawyers">
+          <Key>
+            <PropertyRef Name="KeywordId" />
+            <PropertyRef Name="LawyerId" />
+          </Key>
+          <Property Name="KeywordId" Type="int" Nullable="false" />
+          <Property Name="LawyerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LawBars">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LawSectors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="MainSectorId" Type="int" />
+        </EntityType>
+        <EntityType Name="Lawyers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="80" />
+          <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="80" />
+          <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ZipCode" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="PrimaryPhone" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LawBarId" Type="int" Nullable="false" />
+          <Property Name="RegistrationYear" Type="nvarchar" Nullable="false" MaxLength="4" />
+          <Property Name="SecondaryPhone" Type="nvarchar" MaxLength="20" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="20" />
+          <Property Name="StudiesId" Type="int" />
+          <Property Name="Website" Type="nvarchar" MaxLength="80" />
+          <Property Name="Description" Type="text" />
+          <Property Name="LogoUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="Url" Type="nvarchar" MaxLength="80" />
+          <Property Name="RegistrationTimeStamp" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="LawyersLawSectors">
+          <Key>
+            <PropertyRef Name="LawyerId" />
+            <PropertyRef Name="LawSectorId" />
+          </Key>
+          <Property Name="LawyerId" Type="int" Nullable="false" />
+          <Property Name="LawSectorId" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'MyLawyerPublic.dbo.LinkMetaData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="LinkMetaData">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Type" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="80" />
+          <Property Name="Address" Type="nvarchar" MaxLength="80" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+          <Property Name="Website" Type="nvarchar" MaxLength="80" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Type" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MainSectors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Membership">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Membership" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="PaymentDate" Type="date" />
+          <Property Name="PaymentMethod" Type="int" Nullable="false" />
+          <Property Name="LawyerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Studies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__KeywordsL__Keywo__31EC6D26">
+          <End Role="Keywords" Type="MyLawyerPublicModel.Store.Keywords" Multiplicity="1" />
+          <End Role="KeywordsLawyers" Type="MyLawyerPublicModel.Store.KeywordsLawyers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Keywords">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KeywordsLawyers">
+              <PropertyRef Name="KeywordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KeywordsL__Keywo__35BCFE0A">
+          <End Role="Keywords" Type="MyLawyerPublicModel.Store.Keywords" Multiplicity="1" />
+          <End Role="KeywordsLawSectors" Type="MyLawyerPublicModel.Store.KeywordsLawSectors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Keywords">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KeywordsLawSectors">
+              <PropertyRef Name="KeywordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KeywordsL__LawSe__36B12243">
+          <End Role="LawSectors" Type="MyLawyerPublicModel.Store.LawSectors" Multiplicity="1" />
+          <End Role="KeywordsLawSectors" Type="MyLawyerPublicModel.Store.KeywordsLawSectors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LawSectors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KeywordsLawSectors">
+              <PropertyRef Name="LawSectorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KeywordsL__Lawye__32E0915F">
+          <End Role="Lawyers" Type="MyLawyerPublicModel.Store.Lawyers" Multiplicity="1" />
+          <End Role="KeywordsLawyers" Type="MyLawyerPublicModel.Store.KeywordsLawyers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lawyers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KeywordsLawyers">
+              <PropertyRef Name="LawyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LawyersLa__LawSe__3A81B327">
+          <End Role="LawSectors" Type="MyLawyerPublicModel.Store.LawSectors" Multiplicity="1" />
+          <End Role="LawyersLawSectors" Type="MyLawyerPublicModel.Store.LawyersLawSectors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LawSectors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LawyersLawSectors">
+              <PropertyRef Name="LawSectorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LawyersLa__Lawye__398D8EEE">
+          <End Role="Lawyers" Type="MyLawyerPublicModel.Store.Lawyers" Multiplicity="1" />
+          <End Role="LawyersLawSectors" Type="MyLawyerPublicModel.Store.LawyersLawSectors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lawyers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LawyersLawSectors">
+              <PropertyRef Name="LawyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LawSectors_MainSectors">
+          <End Role="MainSectors" Type="MyLawyerPublicModel.Store.MainSectors" Multiplicity="0..1" />
+          <End Role="LawSectors" Type="MyLawyerPublicModel.Store.LawSectors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MainSectors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LawSectors">
+              <PropertyRef Name="MainSectorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lawyers_LawBars">
+          <End Role="LawBars" Type="MyLawyerPublicModel.Store.LawBars" Multiplicity="1" />
+          <End Role="Lawyers" Type="MyLawyerPublicModel.Store.Lawyers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LawBars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Lawyers">
+              <PropertyRef Name="LawBarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lawyers_Studies">
+          <End Role="Studies" Type="MyLawyerPublicModel.Store.Studies" Multiplicity="0..1" />
+          <End Role="Lawyers" Type="MyLawyerPublicModel.Store.Lawyers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Studies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Lawyers">
+              <PropertyRef Name="StudiesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Membership_Lawyers">
+          <End Role="Lawyers" Type="MyLawyerPublicModel.Store.Lawyers" Multiplicity="1" />
+          <End Role="Membership" Type="MyLawyerPublicModel.Store.Membership" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lawyers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Membership">
+              <PropertyRef Name="LawyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MyLawyerPublicModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MyLawyerPublicEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Keywords" EntityType="MyLawyerPublicModel.Keyword" />
+          <EntitySet Name="LawBars" EntityType="MyLawyerPublicModel.LawBar" />
+          <EntitySet Name="LawSectors" EntityType="MyLawyerPublicModel.LawSector" />
+          <EntitySet Name="Lawyers" EntityType="MyLawyerPublicModel.Lawyer" />
+          <EntitySet Name="MainSectors" EntityType="MyLawyerPublicModel.MainSector" />
+          <EntitySet Name="Memberships" EntityType="MyLawyerPublicModel.Membership" />
+          <EntitySet Name="Studies" EntityType="MyLawyerPublicModel.Study" />
+          <AssociationSet Name="FK_Lawyers_LawBars" Association="MyLawyerPublicModel.FK_Lawyers_LawBars">
+            <End Role="LawBars" EntitySet="LawBars" />
+            <End Role="Lawyers" EntitySet="Lawyers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LawSectors_MainSectors" Association="MyLawyerPublicModel.FK_LawSectors_MainSectors">
+            <End Role="MainSectors" EntitySet="MainSectors" />
+            <End Role="LawSectors" EntitySet="LawSectors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lawyers_Studies" Association="MyLawyerPublicModel.FK_Lawyers_Studies">
+            <End Role="Studies" EntitySet="Studies" />
+            <End Role="Lawyers" EntitySet="Lawyers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Membership_Lawyers" Association="MyLawyerPublicModel.FK_Membership_Lawyers">
+            <End Role="Lawyers" EntitySet="Lawyers" />
+            <End Role="Membership" EntitySet="Memberships" />
+          </AssociationSet>
+          <AssociationSet Name="KeywordsLawSectors" Association="MyLawyerPublicModel.KeywordsLawSectors">
+            <End Role="Keywords" EntitySet="Keywords" />
+            <End Role="LawSectors" EntitySet="LawSectors" />
+          </AssociationSet>
+          <AssociationSet Name="KeywordsLawyers" Association="MyLawyerPublicModel.KeywordsLawyers">
+            <End Role="Keywords" EntitySet="Keywords" />
+            <End Role="Lawyers" EntitySet="Lawyers" />
+          </AssociationSet>
+          <AssociationSet Name="LawyersLawSectors" Association="MyLawyerPublicModel.LawyersLawSectors">
+            <End Role="LawSectors" EntitySet="LawSectors" />
+            <End Role="Lawyers" EntitySet="Lawyers" />
+          </AssociationSet>
+          <EntitySet Name="LinkMetaData" EntityType="MyLawyerPublicModel.LinkMetaData" />
+        </EntityContainer>
+        <EntityType Name="Keyword">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="LawSectors" Relationship="MyLawyerPublicModel.KeywordsLawSectors" FromRole="Keywords" ToRole="LawSectors" />
+          <NavigationProperty Name="Lawyers" Relationship="MyLawyerPublicModel.KeywordsLawyers" FromRole="Keywords" ToRole="Lawyers" />
+        </EntityType>
+        <EntityType Name="LawBar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Lawyers" Relationship="MyLawyerPublicModel.FK_Lawyers_LawBars" FromRole="LawBars" ToRole="Lawyers" />
+        </EntityType>
+        <EntityType Name="LawSector">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MainSectorId" Type="Int32" />
+          <NavigationProperty Name="MainSector" Relationship="MyLawyerPublicModel.FK_LawSectors_MainSectors" FromRole="LawSectors" ToRole="MainSectors" />
+          <NavigationProperty Name="Keywords" Relationship="MyLawyerPublicModel.KeywordsLawSectors" FromRole="LawSectors" ToRole="Keywords" />
+          <NavigationProperty Name="Lawyers" Relationship="MyLawyerPublicModel.LawyersLawSectors" FromRole="LawSectors" ToRole="Lawyers" />
+        </EntityType>
+        <EntityType Name="Lawyer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="80" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="80" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="PrimaryPhone" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LawBarId" Type="Int32" Nullable="false" />
+          <Property Name="RegistrationYear" Type="String" Nullable="false" MaxLength="4" Unicode="true" FixedLength="false" />
+          <Property Name="SecondaryPhone" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Fax" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="StudiesId" Type="Int32" />
+          <Property Name="Website" Type="String" MaxLength="80" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="LogoUrl" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Url" Type="String" MaxLength="80" Unicode="true" FixedLength="false" />
+          <Property Name="RegistrationTimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" p1:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="LawBar" Relationship="MyLawyerPublicModel.FK_Lawyers_LawBars" FromRole="Lawyers" ToRole="LawBars" />
+          <NavigationProperty Name="Study" Relationship="MyLawyerPublicModel.FK_Lawyers_Studies" FromRole="Lawyers" ToRole="Studies" />
+          <NavigationProperty Name="Memberships" Relationship="MyLawyerPublicModel.FK_Membership_Lawyers" FromRole="Lawyers" ToRole="Membership" />
+          <NavigationProperty Name="Keywords" Relationship="MyLawyerPublicModel.KeywordsLawyers" FromRole="Lawyers" ToRole="Keywords" />
+          <NavigationProperty Name="LawSectors" Relationship="MyLawyerPublicModel.LawyersLawSectors" FromRole="Lawyers" ToRole="LawSectors" />
+        </EntityType>
+        <EntityType Name="MainSector">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="LawSectors" Relationship="MyLawyerPublicModel.FK_LawSectors_MainSectors" FromRole="MainSectors" ToRole="LawSectors" />
+        </EntityType>
+        <EntityType Name="Membership">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Membership1" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="PaymentDate" Type="DateTime" Precision="0" />
+          <Property Name="PaymentMethod" Type="Int32" Nullable="false" />
+          <Property Name="LawyerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Lawyer" Relationship="MyLawyerPublicModel.FK_Membership_Lawyers" FromRole="Membership" ToRole="Lawyers" />
+        </EntityType>
+        <EntityType Name="Study">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Lawyers" Relationship="MyLawyerPublicModel.FK_Lawyers_Studies" FromRole="Studies" ToRole="Lawyers" />
+        </EntityType>
+        <Association Name="FK_Lawyers_LawBars">
+          <End Role="LawBars" Type="MyLawyerPublicModel.LawBar" Multiplicity="1" />
+          <End Role="Lawyers" Type="MyLawyerPublicModel.Lawyer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LawBars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Lawyers">
+              <PropertyRef Name="LawBarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LawSectors_MainSectors">
+          <End Role="MainSectors" Type="MyLawyerPublicModel.MainSector" Multiplicity="0..1" />
+          <End Role="LawSectors" Type="MyLawyerPublicModel.LawSector" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MainSectors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LawSectors">
+              <PropertyRef Name="MainSectorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lawyers_Studies">
+          <End Role="Studies" Type="MyLawyerPublicModel.Study" Multiplicity="0..1" />
+          <End Role="Lawyers" Type="MyLawyerPublicModel.Lawyer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Studies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Lawyers">
+              <PropertyRef Name="StudiesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Membership_Lawyers">
+          <End Role="Lawyers" Type="MyLawyerPublicModel.Lawyer" Multiplicity="1" />
+          <End Role="Membership" Type="MyLawyerPublicModel.Membership" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lawyers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Membership">
+              <PropertyRef Name="LawyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="KeywordsLawSectors">
+          <End Role="Keywords" Type="MyLawyerPublicModel.Keyword" Multiplicity="*" />
+          <End Role="LawSectors" Type="MyLawyerPublicModel.LawSector" Multiplicity="*" />
+        </Association>
+        <Association Name="KeywordsLawyers">
+          <End Role="Keywords" Type="MyLawyerPublicModel.Keyword" Multiplicity="*" />
+          <End Role="Lawyers" Type="MyLawyerPublicModel.Lawyer" Multiplicity="*" />
+        </Association>
+        <Association Name="LawyersLawSectors">
+          <End Role="LawSectors" Type="MyLawyerPublicModel.LawSector" Multiplicity="*" />
+          <End Role="Lawyers" Type="MyLawyerPublicModel.Lawyer" Multiplicity="*" />
+        </Association>
+        <EntityType Name="LinkMetaData">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Type" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phone" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Website" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int16" Name="Type" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MyLawyerPublicModelStoreContainer" CdmEntityContainer="MyLawyerPublicEntities">
+          <EntitySetMapping Name="Keywords">
+            <EntityTypeMapping TypeName="MyLawyerPublicModel.Keyword">
+              <MappingFragment StoreEntitySet="Keywords">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LawBars">
+            <EntityTypeMapping TypeName="MyLawyerPublicModel.LawBar">
+              <MappingFragment StoreEntitySet="LawBars">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LawSectors">
+            <EntityTypeMapping TypeName="MyLawyerPublicModel.LawSector">
+              <MappingFragment StoreEntitySet="LawSectors">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="MainSectorId" ColumnName="MainSectorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lawyers">
+            <EntityTypeMapping TypeName="MyLawyerPublicModel.Lawyer">
+              <MappingFragment StoreEntitySet="Lawyers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="PrimaryPhone" ColumnName="PrimaryPhone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LawBarId" ColumnName="LawBarId" />
+                <ScalarProperty Name="RegistrationYear" ColumnName="RegistrationYear" />
+                <ScalarProperty Name="SecondaryPhone" ColumnName="SecondaryPhone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="StudiesId" ColumnName="StudiesId" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LogoUrl" ColumnName="LogoUrl" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="RegistrationTimeStamp" ColumnName="RegistrationTimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MainSectors">
+            <EntityTypeMapping TypeName="MyLawyerPublicModel.MainSector">
+              <MappingFragment StoreEntitySet="MainSectors">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Memberships">
+            <EntityTypeMapping TypeName="MyLawyerPublicModel.Membership">
+              <MappingFragment StoreEntitySet="Membership">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Membership1" ColumnName="Membership" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="LawyerId" ColumnName="LawyerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Studies">
+            <EntityTypeMapping TypeName="MyLawyerPublicModel.Study">
+              <MappingFragment StoreEntitySet="Studies">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="KeywordsLawSectors" TypeName="MyLawyerPublicModel.KeywordsLawSectors" StoreEntitySet="KeywordsLawSectors">
+            <EndProperty Name="Keywords">
+              <ScalarProperty Name="Id" ColumnName="KeywordId" />
+            </EndProperty>
+            <EndProperty Name="LawSectors">
+              <ScalarProperty Name="Id" ColumnName="LawSectorId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="KeywordsLawyers" TypeName="MyLawyerPublicModel.KeywordsLawyers" StoreEntitySet="KeywordsLawyers">
+            <EndProperty Name="Keywords">
+              <ScalarProperty Name="Id" ColumnName="KeywordId" />
+            </EndProperty>
+            <EndProperty Name="Lawyers">
+              <ScalarProperty Name="Id" ColumnName="LawyerId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="LawyersLawSectors" TypeName="MyLawyerPublicModel.LawyersLawSectors" StoreEntitySet="LawyersLawSectors">
+            <EndProperty Name="LawSectors">
+              <ScalarProperty Name="Id" ColumnName="LawSectorId" />
+            </EndProperty>
+            <EndProperty Name="Lawyers">
+              <ScalarProperty Name="Id" ColumnName="LawyerId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="LinkMetaData">
+            <EntityTypeMapping TypeName="MyLawyerPublicModel.LinkMetaData">
+              <MappingFragment StoreEntitySet="LinkMetaData">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

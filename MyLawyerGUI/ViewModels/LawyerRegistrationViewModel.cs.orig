@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.ComponentModel.DataAnnotations;
+using MyLawyerGUI.Validations;
+
+namespace MyLawyer.GUI.ViewModels
+{
+    public class LawyerRegistrationViewModel: LawyerBaseViewModel
+    {
+        [Display(Name = "Δικηγορικός Συλλόγος*: ")]
+        [Required(ErrorMessage = "Υποχρεωτικό πεδίο.")]
+        public IEnumerable<SelectListItem> LawBars { get; set; }
+        [Display(Name = "Τομείς ειδίκευσης: ")]
+        public IEnumerable<SelectListItem> LawSectors { get; set; }
+        [Display(Name = "Επίπεδο σπουδών: ")]
+        public IEnumerable<SelectListItem> Studies { get; set; }
+        [Display(Name = "Λέξεις κλειδιά: ")]
+        public IEnumerable<SelectListItem> Keywords { get; set; }
+        //[Display(Name = "Λογότυπο: ")]
+        //public int MyProperty { get; set; }
+
+        public int[] SelectedLawSectors { get; set; }
+        [Required(ErrorMessage = "Υποχρεωτικό πεδίο.")]
+        public int SelectedLawBar { get; set; }
+        public int SelectedStudies { get; set; }
+        public int[] SelectedKeywords { get; set; }
+
+        public string Membership { get; set; }
+    }
+
+}

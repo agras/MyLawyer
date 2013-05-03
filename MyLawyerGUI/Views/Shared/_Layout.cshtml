@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+
+    <link rel="stylesheet" href="../../Content/smoothness/jquery-ui-1.10.1.custom.css" />
+    @*<link href="../../Content/ui.dropdownchecklist.standalone.css" rel="stylesheet" type="text/css" />*@
+    <link href="@Url.Content("~/Content/MyLawyerCSS.css")" rel="stylesheet" type="text/css" />
+    <link href="../../Scripts/twitter-bootstrap/twitter-bootstrap-v2/docs/assets/css/bootstrap.css" rel="stylesheet">
+
+    <script src="@Url.Content("~/Scripts/jquery-1.7.1.js")" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.dd.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery-ui-1.10.1.custom.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../Scripts/ui.dropdownchecklist.js"></script>
+    
+</head>
+<body @*style="background-image:url('../../Images/background_wood.jpg')"*@>
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <img src="../../Images/Bannerfinal.jpg" />
+            </div>
+            <div id="menucontainer" class="clear hideSkiplink">
+                 
+                <ul id="nav">
+                    <li>@Html.ActionLink("Αρχική", "Search", "Home")</li>
+                    <li>@Html.ActionLink("Νομικά θέματα", "LawSubjects", "Home")</li>
+                    <li>@Html.ActionLink("Εγγραφείτε", "Index", "Registration")</li>
+                    <li>@Html.ActionLink("Legal marketing", "LegalMarketing", "Home")</li>
+                    <li>@Html.ActionLink("Σύνδεσμοι", "Links", "Home")</li>
+                    <li>@Html.ActionLink("Επικοινωνία", "Index", "About")</li>
+                </ul>
+             </div>
+            </div>    
+                <div id="main" >
+                    @RenderBody()
+                </div>
+                <div class="clear"></div>
+            <div class="footer">
+             <hr class="style-four"/>
+			<p>Copyright &copy; 2013 my-lawyer, Beta Version 0.1</p>
+		    </div>
+       </div>       
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿@model MyLawyer.GUI.ViewModels.ImageUploadVM
+@{
+    ViewBag.Title = "ImageUpload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ImageUpload</h2>
+
+@*<form action="" method="post" enctype="multipart/form-data">
+  
+  <label for="file">Filename:</label>
+  <input type="file" name="file" id="file" accept=".PNG,.TXT,.JPG,.BMP"/>
+
+  <input type="submit" />
+</form>*@
+
+
+<form action="" method="post" enctype="multipart/form-data">
+
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Photo)
+                        </div>
+                        <div class="editor-field">
+                                @Html.TextBoxFor(m => m.Photo, new { type = "file" })
+                        </div>
+                        <div class="editor-field">
+                            @Html.ValidationMessageFor(model => model.Photo)
+                        </div>
+    <input type="submit" value="Εγγραφή" class="btn btn-small" />
+    </form>
+

@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div style="margin-left: 50px; margin-right: 50px">
+    <h2>Καταχώρηθείτε στο ευρετήριο του ...</h2>
+    <hr class="style-four" />
+    <br />
+    <br />
+    <br />
+</div>
+
+
+<div style="margin-left: 200px; margin-right: 200px">
+
+        <table class="table table-striped">
+                        <thead>
+                            <th>Επιλογές</th>
+                            <th>Χρέωση</th>
+                            <th>Διάρκεια</th>
+                            <th>Επιλέξτε</th>
+                        </thead>
+                        <tr>
+                            <td>Silver</td>
+                            <td>Δωρεάν</td>
+                            <td>12 μήνες</td>
+                            <td style="padding-left: 10px; padding-right: 10px;">
+                                @Html.ActionLink("Επιλογή", "Register", "Registration", new { membership = "Silver" }, null)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Gold</td>
+                            <td>Δωρεάν</td>
+                            <td>12 μήνες</td>
+                            <td style="padding-left: 10px; padding-right: 10px;">
+                                @Html.ActionLink("Επιλογή", "Register", "Registration", new { membership = "Gold" }, null)
+                            </td>
+                        </tr>
+         </table>
+
+    
+</div>

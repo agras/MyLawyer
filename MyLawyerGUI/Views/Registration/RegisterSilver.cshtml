@@ -1,0 +1,257 @@
+﻿@model MyLawyer.GUI.ViewModels.LawyerRegistrationViewModel
+@{
+    ViewBag.Title = "Εγγραφείτε";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JScript.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/bootstrap-tooltip.js")" type="text/javascript"></script>
+
+
+@*<script type="text/javascript">alert("sfsdfsdf")</script>*@
+<script type="text/javascript">
+    window.onload = function () {
+        if (!window.jQuery) {
+            alert('jQuery not loaded');
+        }
+        else {
+            $(document).ready(function () {
+                $("[rel=tooltip]").tooltip({ 'placement': 'top', 'trigger': 'hover' });
+            });
+        }
+    }
+</script>
+    
+
+@using (Html.BeginForm("Register", "Registration", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+
+    
+    <div style="margin-left: 50px; margin-right: 50px">
+        <h2>Εγγραφή</h2>
+        <hr class="style-four"/>
+        <br />
+        <br />
+        <br />
+    </div>
+    
+  
+
+        <div id="step1" style="margin-left: 200px; margin-right: 200px">
+        <fieldset>
+            <legend style="text-align:left;">Εγγραφή !</legend>
+            <table style="text-align:left;">
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Name)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                                @Html.EditorFor(model => model.Name, new { id = "test" })
+                                <a href="#" rel="tooltip" title="Καταχώρηση στοιχείων ονομασίας" id="tooltip1"><i class="icon-question-sign"></i></a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Address)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.Address)
+                           <a href="#" rel="tooltip" title="Καταχώρηση διεύθυνσης" id="tooltip2"><i class="icon-question-sign"></i></a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.ValidationMessageFor(model => model.Address)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.City)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.City)
+                            <a href="#" rel="tooltip" title="Καταχώρηση πόλης" id="tooltip3"><i class="icon-question-sign"></i></a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.ValidationMessageFor(model => model.City)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.ZipCode)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.ZipCode)
+                             <a href="#" rel="tooltip" title="Καταχώρηση ταχ. κώδικα" id="tooltip4"><i class="icon-question-sign"></i></a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.ValidationMessageFor(model => model.ZipCode)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.PrimaryPhone)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.PrimaryPhone)
+                             <a href="#" rel="tooltip" title="Καταχώρηση τηλεφώνου" id="tooltip5"><i class="icon-question-sign"></i></a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.ValidationMessageFor(model => model.PrimaryPhone)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.SecondaryPhone)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.SecondaryPhone)
+                             <a href="#" rel="tooltip" title="Καταχώρηση δευτερεύοντος τηλεφώνου" id="tooltip6"><i class="icon-question-sign"></i></a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.ValidationMessageFor(model => model.SecondaryPhone)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Email)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.Email)
+                             <a href="#" rel="tooltip" title="Καταχώρηση e-mail" id="tooltip7"><i class="icon-question-sign"></i></a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Fax)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.Fax)
+                             <a href="#" rel="tooltip" title="Καταχώρηση φάξ" id="tooltip9"><i class="icon-question-sign"></i></a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.ValidationMessageFor(model => model.Fax)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.RegistrationYear)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.RegistrationYear)
+                             <a href="#" rel="tooltip" title="Καταχώρηση έτους εγγραφής στο Δικηγορικό Σύλλογο" id="tooltip10"><i class="icon-question-sign"></i></a>
+                        </div>
+                    </td>
+                     <td>
+                        <div class="editor-field">
+                            @Html.ValidationMessageFor(model => model.RegistrationYear)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.LawBars)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.DropDownListFor(x => x.SelectedLawBar, new SelectList(Model.LawBars, "Value", "Text"), "Επιλέξτε")
+                             <a href="#" rel="tooltip" title="Καταχώρηση Δικηγορικού Συλλόγου" id="tooltip11"><i class="icon-question-sign"></i></a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.ValidationMessageFor(model => model.SelectedLawBar)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.LawSectors)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.ListBoxFor(x => x.SelectedLawSectors, Model.LawSectors)
+                             <a href="#" rel="tooltip" title="Επιλογή τομέων ειδίκευσης. Ανάλογα με την επιλογή τομέα σας δίνονται οι λέξεις κλειδιά των αναζητήσεων στις οποίες θα εμφανίζεστε" id="tooltip12"><i class="icon-question-sign"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table>
+                    <tr>
+                        <td style="padding-left: 10px; padding-right: 10px;">
+                                <input type="submit" value="Εγγραφή" class="btn btn-small" />
+                        </td>
+                        <td style="padding-left: 20px; padding-right: 10px;">
+                            <input type="reset" value="Καθαρισμός" class="btn btn-small"  />
+                        </td>
+                    </tr>
+            </table>
+            <br />
+        </fieldset>
+        <br />
+    </div>
+    
+}

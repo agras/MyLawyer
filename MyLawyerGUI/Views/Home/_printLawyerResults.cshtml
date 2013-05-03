@@ -1,0 +1,173 @@
+﻿@model IEnumerable<MyLawyer.GUI.ViewModels.LawyerSearchResultViewModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>_printLawyerResults</title>
+</head>
+<body>
+    <p>
+    </p>
+    <br />
+    <h2 style="text-align: left">Αποτελέσματα Αναζήτησης:</h2>
+    <br />
+    <br />
+    <table class="table table-hover">
+        @*<thead>
+                <tr>
+                    <th></th>
+                    <th style="font-size:17px;">Αποτελέσματα Αναζήτησης <br /></th>
+                    <th></th>
+                </tr>
+            </thead>*@
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="../../Images/logoTest.jpg" class="img-polaroid">
+                    </td>
+                    <td>
+                        <a href=#@Html.DisplayFor(modelItem => item.Id) data-toggle="modal" style="font-size:15px"><b>@Html.DisplayFor(modelItem => item.Name)</b></a>
+                        <br />
+                        @Html.DisplayFor(modelItem => item.FullAddress)
+                    </td>
+                    <td>
+                        <br />
+                        <b>Δικηγορικός Σύλλογος: </b>@Html.DisplayFor(modelItem => item.LawBarText)
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+@*<div id=@Html.DisplayFor(modelItem => item.Id) class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h3 id="myModalLabel">Στοιχεία Δικηγόρου</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p>@Html.DisplayFor(modelItem => item.LawBarText)</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Κλείσιμο</button>
+                    </div>
+                </div>*@
+                
+                
+                
+                
+                <!-- Modal -->
+                <div id=@Html.DisplayFor(modelItem => item.Id) class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h2 id="myModalLabel">Στοιχεία Δικηγορικού Γραφείου</h2>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row-fluid" id="topBox">
+                            <div class="span4" id="topBoxLeftColumn">
+
+                                <ul class="thumbnails">
+                                    <li>
+                                        <div class="thumbnail">
+                                            <img src="../../Images/background_wood.jpg" alt="">
+                                        </div>
+                                    </li>
+                                </ul>
+
+
+                            </div>
+                            <div class="span5" id="topBoxCenterColumn">
+
+                                <ul class="thumbnails">
+                                    <li>
+                                        <div class="thumbnail">
+                                            <img src="../../Images/top112.jpg" alt="">
+                                            <p>@Html.DisplayFor(modelItem => item.Name)</p>
+                                            <p>@Html.DisplayFor(modelItem => item.Address)</p>
+                                            <p>@Html.DisplayFor(modelItem => item.PrimaryPhone)</p>
+                                            <p>@Html.DisplayFor(modelItem => item.Email)</p>
+
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <div class="span3" id="topBoxRightColumn">
+
+                                <ul class="thumbnails">
+                                    <li>
+                                        <div class="thumbnail">
+                                            <img src="../../Images/top112.jpg" alt="">
+                                            <p>@Html.DisplayFor(modelItem => item.LawBarText)</p>
+                                            @foreach (string sector in item.LawSectorTexts)
+                                            {
+                                                <p>@sector</p>                                                    
+                                            }
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row-fluid" id="centerBox">
+                            <div class="span5" id="topBoxLeftColumn">
+
+                                <ul class="thumbnails">
+                                    <li>
+                                        <div class="thumbnail">
+                                            @if (item.Website != null)
+                                            {
+                                                @Html.DisplayFor(modelItem => item.Website)
+                                            }
+                                        </div>
+                                    </li>
+                                </ul>
+
+
+                            </div>
+                            <div class="span7" id="topBoxCenterColumn">
+                                <p>One fine body…</p>
+                                <p>One fine body…</p>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row-fluid" id="bottomBox">
+                            <div class="span7" id="topBoxLeftColumn">
+                                <p>One fine body…</p>
+                            </div>
+                            <div class="span5" id="topBoxCenterColumn">
+                                <p>One fine body…</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                    </div>
+                </div>
+                
+                
+                
+                
+                
+                
+            }
+        </tbody>
+    </table>
+    @ViewBag.Alexis
+</body>
+</html>

@@ -1,0 +1,568 @@
+/* From bootstrap
+-----------------------------------------------------------*/
+hr {
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #ffffff;
+}
+/*----------------------------------------------------------------*/
+hr.style-five {
+    border: 0;
+    height: 0; /* Firefox... */
+    box-shadow: 0 0 10px 1px black;
+}
+hr.style-five:after {  /* Not really supposed to work, but does */
+    content: "\00a0";  /* Prevent margin collapse */
+}
+
+hr.style-four {
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(0,0,0,0.5);
+}
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: red; 
+    font-weight: bold;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+/*----------------------------------------------------------------*/
+
+.dropdownlistcss {
+	
+	top: 0;
+	left: 0;
+	cursor: default;
+	max-height: 20px;    
+	overflow-y: auto;    /* prevent horizontal scrollbar */    overflow-x: hidden;  
+	height: 100px;
+    
+}
+
+#RegisterFS label {
+    width: 150px;
+}
+
+#RegisterFS input {
+    width: 250px;
+}
+#RegisterFS select {
+    width: 250px;
+}
+
+/* DEFAULTS
+----------------------------------------------------------*/
+.search_label {
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+fieldset {
+	padding: 1em;
+	font: 12px sans-serif;
+    background-color: #FAFAFA;
+}
+
+label {
+	float: left;
+	width: 100px;
+	margin-right: 0.5em;
+	padding-top: 0.2em;
+	text-align: left;
+	font-weight: bold;
+}
+
+.toggler {
+	width: 500px;
+	height: 200px;
+}
+
+#table-6 {
+	width: 100% border:  1px solid #B0B0B0;
+}
+
+#table-6 tbody {
+	/* Kind of irrelevant unless your .css is alreadt doing something else */
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+#table-6 thead {
+	text-align: left;
+}
+
+#table-6 thead th {
+	background: -moz-linear-gradient(top, #F0F0F0 0, #DBDBDB 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F0F0F0),
+		color-stop(100%, #DBDBDB) );
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F0F0F0',
+		endColorstr='#DBDBDB', GradientType=0 );
+	border: 1px solid #B0B0B0;
+	color: #444;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 3px 10px;
+}
+
+#table-6 td {
+	padding: 3px 10px;
+	font-size: 10px;
+}
+
+#table-6 tr:nth-child(even) {
+	background: #F2F2F2;
+}
+
+#searchText {
+	width: 300px;
+	height: 15px;
+}
+
+.inputtext1 {
+	width: 265px;
+	height: 15px;
+	margin-bottom: 7px;
+}
+
+/* Start Menu Style */
+#nav {
+	width: 100%;
+	float: left;
+	margin: 0 0 15px 0;
+	padding: 0;
+	list-style: none;
+	background-color: #f2f2f2;
+	border-bottom: 1px solid #6C3200; /**/
+}
+
+#nav li {
+	float: left;
+}
+
+#nav li a {
+	display: block;
+	padding: 8px 15px;
+	text-decoration: none;
+	font-weight: bold;
+    font-family:Verdana;
+	color: #6C3200;
+	border-right: 2px solid #ccc;
+    padding-left: 41px;
+    padding-right: 41px;
+}
+
+#nav li a:hover {
+	color: #c00;
+	background-color: #fff;
+}
+
+/* End Menu Style */
+body {
+    background-image: url('../Images/Background.jpg');
+	font-size: .80em;
+	font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial,	Helvetica, Verdana, sans-serif;
+	margin: 0px;
+	padding: 0px;
+	color: #696969;
+}
+
+a:link,a:visited {
+	color: #693003;
+}
+
+a:hover {
+	color: #693003;
+	text-decoration: none;
+}
+
+a:active {
+	color: #693003;
+}
+
+p {
+	margin-bottom: 10px;
+	line-height: 1.6em;
+}
+
+/* HEADINGS   
+----------------------------------------------------------*/
+h1,h2,h3,h4,h5,h6 {
+	font-size: 1.5em;
+	color: #000; /*Neo Add configuration for title*/
+	background-color:#fff;
+	text-transform: none;
+	font-weight: 100;
+	margin-bottom: 0px;
+}
+
+h1 {
+	font-size: 1.6em;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+h2 {
+	font-size: 1.5em;
+	font-weight: 600;
+    margin-left:10px;
+}
+
+h3 {
+	font-size: 1.2em;
+}
+
+h4 {
+	font-size: 1.1em;
+}
+
+h5,h6 {
+	font-size: 1em;
+}
+
+/* this rule styles <h1> and <h2> tags that are the 
+first child of the left and right table columns */
+.rightColumn>h1,.rightColumn>h2,.leftColumn>h1,.leftColumn>h2 {
+	margin-top: 0px;
+}
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+.page {
+	width: 1024px;
+	min-height: 780px;
+	background-color: #fff;
+	margin: 0px auto 0px auto;
+	border: 1px solid #6C3200;
+	/*-moz-box-shadow: 10px 10px 5px #888888;
+	-webkit-box-shadow: 10px 10px 5px #888888;
+	box-shadow: 10px 10px 5px #888888;*/
+}
+
+.header {
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+	background: #6C3200;
+	width: 100%;
+	height: 184px;
+}
+
+.header h1 {
+	font-weight: 700;
+	margin: 0px;
+	padding: 0px 0px 0px 20px;
+	color: #f9f9f9;
+	border: none;
+	line-height: 2em;
+	font-size: 40px;
+    
+}
+
+.main {
+	padding: 0px 2px;
+	margin: 10px 8px 8px 8px;
+	min-height: 1020px;
+    background-color:#fff;
+}
+
+.leftCol {
+	padding: 6px 0px;
+	margin: 12px 8px 8px 8px;
+	width: 200px;
+	min-height: 200px;
+}
+
+.footer {
+	color: #363c47;
+	padding: 8px 0px 0px 0px;
+	margin: 0px auto;
+	text-align: center;
+	line-height: normal;
+	font-weight: bold;
+    height: 140px;
+    background-image: url('../Images/EndPiece.jpg');
+}
+
+.infoPopOver {
+	font-size: 20px;
+	font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial,
+		Helvetica, Verdana, sans-serif;
+	color: #696969;
+}
+
+
+/* TAB MENU   
+----------------------------------------------------------*/
+div.hideSkiplink {
+	
+	width: 100%;
+}
+
+div.menu {
+	padding: 4px 0px 4px 8px;
+}
+
+div.menu ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	width: auto;
+    
+}
+
+div.menu ul li a,div.menu ul li a:visited {
+	background-color: #465c71;
+	border: 1px #4e667d solid;
+	color: #dde4ec;
+	display: block;
+	line-height: 1.35em;
+	padding: 4px 20px;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+div.menu ul li a:hover {
+	background-color: #bfcbd6;
+	color: #465c71;
+	text-decoration: none;
+}
+
+div.menu ul li a:active {
+	background-color: #465c71;
+	color: #cfdbe6;
+	text-decoration: none;
+}
+
+/* FORM ELEMENTS   
+----------------------------------------------------------*/
+fieldset {
+	margin: 1em 0px;
+	padding: 1em;
+	border: 2px solid #ccc;
+    text-align: center;
+}
+
+fieldset p {
+	margin: 2px 12px 10px 10px;
+}
+
+fieldset.login label,fieldset.register label,fieldset.changePassword label
+	{
+	display: block;
+}
+
+fieldset label.inline {
+	display: inline;
+}
+
+fieldset table {
+    margin: 0 auto; 
+    text-align: center;
+}
+
+fieldset table input {
+    width: 265px;
+
+}
+
+fieldset table textarea {
+    width: 300px;
+    height : 100px;
+    resize : none
+
+}
+
+legend {
+	font-size: 1.1em;
+	font-weight: 600;
+	padding: 2px 4px 8px 4px;
+}
+
+input.textEntry {
+	width: 320px;
+	border: 1px solid #ccc;
+}
+
+input.passwordEntry {
+	width: 320px;
+	border: 1px solid #ccc;
+}
+
+div.accountInfo {
+	width: 42%;
+}
+
+/* MISC  
+----------------------------------------------------------*/
+.clear {
+	clear: both;
+}
+
+.title {
+	display: block;
+	float: left;
+	text-align: left;
+	width: auto;
+	height: 179px; /*Neo: Control position of element after ti (e.g. menu)*/
+}
+
+.loginDisplay {
+	font-size: 1.1em;
+	display: block;
+	text-align: right;
+	padding: 10px;
+	color: White;
+}
+
+.loginDisplay a:link {
+	color: white;
+}
+
+.loginDisplay a:visited {
+	color: white;
+}
+
+.loginDisplay a:hover {
+	color: white;
+}
+
+.failureNotification {
+	font-size: 1.2em;
+	color: Red;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.submitButton {
+	text-align: right;
+	padding-right: 10px;
+}
+
+
+/*Collapsible list*/
+.topnav {
+    width: 213px;
+    padding: 40px 28px 25px 0;
+    font-family: "CenturyGothicRegular", "Century Gothic", Arial, Helvetica, sans-serif;
+}
+ 
+ul.topnav {
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
+    line-height: 0.5em;
+    list-style: none;
+}
+ 
+ul.topnav li {}
+ 
+ul.topnav li a {
+    line-height: 10px;
+    font-size: 11px;
+    padding: 10px 5px;
+    color: #000;
+    display: block;
+    text-decoration: none;
+    font-weight: bolder;
+}
+ 
+ul.topnav li a:hover {
+    background-color:#675C7C;
+    color:white;
+}
+ 
+ul.topnav ul {
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+ 
+ul.topnav ul li {
+    margin: 0;
+    padding: 0;
+    clear: both;
+}
+ 
+ul.topnav ul li a {
+    padding-left: 20px;
+    font-size: 10px;
+    font-weight: normal;
+}
+ 
+ul.topnav ul li a:hover {
+    background-color:#D3C99C;
+    color:#675C7C;
+}
+ 
+ul.topnav ul ul li a {
+    color:silver;
+    padding-left: 40px;
+}
+ 
+ul.topnav ul ul li a:hover {
+    background-color:#D3CEB8;
+    color:#675C7C;
+}
+ 
+ul.topnav span{
+    float:right;
+}
+
+.ui-multiselect-hasfilter ul { position:relative; top:2px }
+.ui-multiselect-filter { float:left; margin-right:10px; font-size:9px }
+.ui-multiselect-filter input { width:150px; font-size:10px; margin-left:5px; height:15px; padding:2px; border:1px solid #292929; -webkit-appearance:textfield; -webkit-box-sizing:content-box; }
+
+.ui-multiselect { padding:2px 0 2px 4px; text-align:left }
+.ui-multiselect span.ui-icon { float:right }
+.ui-multiselect-single .ui-multiselect-checkboxes input { position:absolute !important; top: auto !important; left:-9999px; }
+.ui-multiselect-single .ui-multiselect-checkboxes label { padding:5px !important }
+
+.ui-multiselect-header { margin-bottom:5px; padding:3px 0 3px 4px; }
+.ui-multiselect-header ul { font-size:0.9em }
+.ui-multiselect-header ul li { float:left; padding:0 10px 0 0 }
+.ui-multiselect-header a { font-size:9px }
+.ui-multiselect-header a:hover { text-decoration:underline }
+.ui-multiselect-header span.ui-icon { float:left }
+.ui-multiselect-header li.ui-multiselect-close { float:right; text-align:right; padding-right:0; vertical-align:top}
+
+.ui-multiselect-menu { display:none; padding:3px; position:absolute; z-index:10000; text-align: left }
+.ui-multiselect-checkboxes { position:relative /* fixes bug in IE6/7 */; overflow-y:auto }
+.ui-multiselect-checkboxes label { cursor:default; display:block; border:1px solid transparent; padding:3px 1px }
+.ui-multiselect-checkboxes label input { position:relative; top:1px }
+.ui-multiselect-checkboxes li { clear:both; font-size:0.9em; padding-right:3px }
+.ui-multiselect-checkboxes li.ui-multiselect-optgroup-label { text-align:center; font-weight:bold; border-bottom:1px solid }
+.ui-multiselect-checkboxes li.ui-multiselect-optgroup-label a { display:block; padding:3px; margin:1px 0; text-decoration:none }
+
+/* remove label borders in IE6 because IE6 does not support transparency */
+* html .ui-multiselect-checkboxes label { border:none }
+
+
+

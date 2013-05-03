@@ -1,0 +1,192 @@
+﻿@model MyLawyer.GUI.ViewModels.SearchViewModel
+@{
+    ViewBag.Title = "Search";
+}
+<script src="@Url.Content("~/Scripts/JScript.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/bootstrap.js")" type="text/javascript"></script>
+
+<link href="@Url.Content("../../Content/MyLawyerCSS.css")" rel="stylesheet" type="text/css" />
+
+<link href="@Url.Content("~/Scripts/select2-3.3.2/select2.css")" rel="stylesheet"/>
+<script src="@Url.Content("~/Scripts/select2-3.3.2/select2.js")"></script> 
+    <script>
+
+        
+    </script>
+
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <h2>Αναζήτηση</h2>
+    <hr class="style-four" />
+        
+    <div class="message" style="padding-left: 50px; padding-right: 50px;">
+        Καλωσορίσατε στο my-lawyer.gr, την πρώτη ελληνική μηχανή αναζήτησης νομικών θεμάτων αλλά και δικηγόρων. 
+            <br />
+        <br />
+        Στη βάση δεδομένων μας υπάρχουν εκατοντάδες καταχωρήσεις που παρουσιάζουν συνοπτικά τα νομικά ζητήματα που σας απασχολούν ενώ ανάλογα με την αναζήτηση σας εμφανίζεται μια λίστα με δικηγόρους που εξειδικεύονται στο εν λόγω θέμα. Με αυτό τον τρόπο μπορείτε να αποκτήσετε μια γενική εικόνα σχετικά με τη νομική σας υπόθεση ενώ ταυτόχρονα μπορείτε να βρείτε τον κατάλληλο δικηγόρο. 
+            <br />
+        <br />
+        Εναλλακτικά, μπορείτε να αναζητήσετε το δικηγόρο που θέλετε με βάση το όνομα, την ειδίκευση ή/και την τοποθεσία του!
+    </div>
+    <br />   
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Αναζήτηση Νομικού Θέματος</a></li>
+            <li><a href="#tabs-2">Αναζήτηση Δικηγoρικού Γραφείου</a></li>
+        </ul>
+
+
+        <div id="tabs-1">
+            <div style="margin-left: 200px; margin-right: 200px;">
+                <fieldset>
+                    <table>
+                        <tr>
+                            <td>
+                                <div><b>Πληκτρολόγησε το νομικό σου ζήτημα:</b></div>
+                                <br />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <input type="text" id="searchText" placeholder="Π.χ Διαζύγιο ή Εφορία ή Ενοίκιο" />
+                                <br />
+                                <br />
+                            </td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td style="padding-left: 10px; padding-right: 10px;">
+                                <input type="submit" value="Αναζήτηση" class="btn btn-small" />
+                            </td>
+                            <td style="padding-left: 20px; padding-right: 10px;">
+                                <input type="reset" value="Καθαρισμός" class="btn btn-small" />
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                </fieldset>
+                <br />
+            </div>
+        </div>
+
+        <div id="tabs-2">
+            <div style="margin-left: 200px; margin-right: 200px;">
+                <p>
+                    <fieldset>
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.SearchLawyerName)
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.EditorFor(model => model.SearchLawyerName)
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.LawBars)
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="editor-field">
+                                        @*<select id="e1"  multiple style="width:300px" class="populate">
+                                        @Html.DropDownListFor(x => x.SearchLawBar, Model.LawBars)
+                                            </select>*@
+                                        <select id="e1" style="width:300px" class="populate">
+                                            @foreach (var sector in Model.LawBars)
+                                            {
+                                                <option>@sector.Text</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </td>
+                                <br />
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(x => x.LawSectors)
+                                    </div>
+                                </td>
+                                <td>
+                                    @* <div class="editor-field">
+                                        @Html.ListBoxFor(x => x.SearchLawSector, Model.LawSectors)
+                                    </div>*@
+
+                                    <div class="editor-field">
+                                        <select id="e2"  multiple style="width:300px" class="populate">
+                                            @foreach (var sector in Model.LawSectors)
+                                            {
+                                                <option>@sector.Text</option>
+                                            }
+                                        </select>
+
+
+
+                                    </div>
+
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                        <br />
+                        <table>
+                            <tr>
+                                <td style="padding-left: 10px; padding-right: 10px;">
+                                    <input type="submit" value="Αναζήτηση" class="btn btn-small" />
+                                </td>
+                                <td style="padding-left: 20px; padding-right: 10px;">
+                                    <input type="reset" value="Καθαρισμός" class="btn btn-small" id="clearButton"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                    </fieldset>
+            </div>
+        </div>
+    </div>
+    
+    <div id="searchResults" style="padding-right: 240px; padding-left: 160px;">
+        @if (Model.Lawyers != null)
+        {
+            <br />
+            <b>Τα κριτήρια αναζήτησης που επιλέξατε είναι: </b>
+            if (Model.SearchLawyerName != null)
+            {    
+            @Html.DisplayFor(modelItem => Model.SearchLawyerName)
+            <b>&diams;</b>
+            }
+            if (Model.SearchLawBar != null && Model.SearchLawBar != 0)
+            {
+            @Html.DisplayFor(modelItem => Model.LawBars.Where(x => x.Value.Equals(Model.SearchLawBar.ToString())).Single().Text)
+            <b>&diams;</b>
+            }
+            if (Model.SearchLawSector != null)
+            {
+                foreach (var sector in Model.SearchLawSector)
+                {
+            @Html.DisplayFor(modelItem => Model.LawSectors.Where(x => x.Value.Equals(sector.ToString())).Single().Text)
+            <b>&Dagger;</b>
+                }
+            <b>&diams;</b>
+            }
+            <br />
+
+            
+            @Html.Partial("_printLawyerResults", Model.Lawyers);
+
+        }
+    </div>
+}

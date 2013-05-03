@@ -1,0 +1,139 @@
+﻿@model MyLawyer.GUI.ViewModels.ContactViewModel   
+    @{
+        ViewBag.Title = "About Us";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/JScript.js")" type="text/javascript"></script>
+    @* The next two scripts are necessary for alert window closing behaviour *@
+    <script src="@Url.Content("~/Scripts/jquery.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap-alert.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap-tooltip.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+    window.onload = function () {
+        if (!window.jQuery) {
+            alert('jQuery not loaded');
+        }
+        else {
+            $(document).ready(function () {
+                $("[rel=tooltip]").tooltip({ 'placement': 'top', 'trigger': 'hover' });
+            });
+        }
+    }
+</script>
+    @using (Html.BeginForm("Contact", "About", FormMethod.Post))
+    {
+        @Html.ValidationSummary(true)
+        
+        <div style="margin-left: 50px; margin-right: 50px">
+            <h2>Επικοινωνία</h2>
+            <hr class="style-four"/>
+        </div>
+        
+        <div class="message" style="padding-left: 50px; padding-right: 50px;">
+            Το my-lawyer.gr είναι η πρώτη ελληνική μηχανή αναζήτησης νομικών θεμάτων και δικηγόρων.
+            <br />
+            <br />
+            Προσφέρουμε στο χρήστη της ιστοσελίδας μας τη δυνατότητα να ενημερωθεί σχετικά με το νομικό ζήτημα που τον απασχολεί ενώ ταυτόχρονα μπορεί να βρει το δικηγόρο που εξειδικεύεται στο συγκεκριμένο θέμα. 
+            <br />
+            <br />
+            Παράλληλα προσφέρουμε στους δικηγόρους που επιθυμούν να διαφημιστούν ένα περιβάλλον στοχευμένης και αποτελεσματικής διαφήμισης.
+            <br />
+            <br />
+            Όσοι εξ αυτών επιθυμούν, μπορούν να έχουν την υποστήριξη της έμπειρης και εξειδικευμένης ομάδας μας στη μετάβαση τους στην ψηφιακή εποχή. Η δημιουργία ιστοσελίδων, η διαφήμιση στο διαδίκτυο και τα ψηφιακά εργαλεία είναι μερικές από τις υπηρεσίες που μπορούμε να σας προσφέρουμε.
+        </div>
+        <br />   
+
+        /* the next block of code checks whether the message was succeffully sent and in case it does, an alert
+               pops up. The teptdata comes from the Contact action in the About controller*/
+        if (TempData["state"] != null)
+        {
+            if ((Boolean)TempData["state"])
+            {
+        <div class="alert alert-success" style="margin-left: 100px; margin-right: 100px">
+            <a class="close" data-dismiss="alert" href="#">&times;</a>
+            <strong>Επιτυχία!</strong> Το μήνυμά σας έχει αποσταλεί.
+        </div>
+            }
+            else
+            {
+        <div class="alert alert-error" style="margin-left: 100px; margin-right: 100px">
+            <a class="close" data-dismiss="alert" href="#">&times;</a>
+            <strong>Αποτυχία!</strong> Το μήνυμά σας δεν εστάλει.
+        </div>
+            }
+        }    
+
+        <div style="margin-left: 200px; margin-right: 200px">
+            <fieldset>
+                <legend style="text-align:left;">Επικοινωνήστε μαζί μας για περισσότερες πληροφορίες!</legend>
+                <table style="text-align:left;">
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.Name)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.Name)
+                            <a href="#" rel="tooltip" title="Εισάγετε το ονοματεπώνυμο ή την επωνυμία σας" id="tooltip1"><i class="icon-question-sign" aria-selected="false"></i></a>
+                        </td>
+                        <td>
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.PhoneNumber)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.PhoneNumber)
+                            <a href="#" rel="tooltip" title="Εισάγετε το τηλέφωνο επικοινωνίας σας" id="tooltip2"><i class="icon-question-sign" aria-selected="false"></i></a>
+                        </td>
+                        <td style="padding-left: 1cm">
+                            @Html.ValidationMessageFor(model => model.PhoneNumber)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.Email)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.Email)
+                            <a href="#" rel="tooltip" title="Εισάγετε το email επικοινωνίας σας" id="tooltip3"><i class="icon-question-sign" aria-selected="false"></i></a>
+                        </td>
+                        <td>
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.Message)
+                        </td>
+                        <td>
+                            @Html.TextAreaFor(model => model.Message)
+                            <a href="#" rel="tooltip" title="Πληκτρολογείστε το μήνυμα σας" id="tooltip4"><i class="icon-question-sign" aria-selected="false"></i></a>
+                        </td>
+                        <td>
+                            @Html.ValidationMessageFor(model => model.Message)
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <table>
+                    <tr>
+                        <td style="padding-left: 10px; padding-right: 10px;">
+                            <input type="submit" value="Υποβολή" id="Submit1" class="btn btn-small" />
+                        </td>
+                        <td style="padding-left: 20px; padding-right: 10px;">
+                            <input type="reset" value="Καθαρισμός" class="btn btn-small"  />
+                        </td>
+                    </tr>
+                </table>
+                <br />
+            </fieldset>
+            <br />
+        </div>
+        
+    }
